@@ -1,0 +1,39 @@
+{% extends 'home.html' %}
+<html>
+<head>
+
+<title>Create page </title>
+
+</head>
+
+{% block content %}
+    <style>
+.container{
+    margin-top: 40px;
+    width: 60%;
+}
+    .wide{
+        margin-top: 2%;
+        padding: 2%;
+        background-color: #F6C562;
+        border-radius: 5%;
+    }
+</style>
+<body style="background-color: #D6D7D0;font-family: 'Bookman Old Style'">
+    <div class="container">
+        <div class="row">
+            <div class="wide offset-md-3 col-md-6">
+                <h1 align="center">Please Enter Data</h1>
+                <form method="post">{% csrf_token %}
+                    {{ iform }}<br>
+                    <center>
+                        <input type="submit" value="Submit" class="btn btn-success">
+                        <input type="reset" value="Clear" class="btn btn-danger">
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+</html>

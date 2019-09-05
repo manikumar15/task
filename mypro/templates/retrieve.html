@@ -1,0 +1,80 @@
+{% extends 'home.html' %}
+<html>
+<head>
+    <title>Retrieve Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    {% block content %}
+<style>
+        body{
+            font-family: "Bookman Old Style";
+            background-color: #D6D7D0;
+        }
+        /*table{ text-shadow: 2px 2px #ff0000;
+        }*/
+    th,td{
+        color: white;
+        text-align: center;
+        margin: 20px;
+        margin-left: 300px;
+        padding-right: 50px;
+        width:80%;
+        border: none;
+        border: 1px solid #CCC;
+        border-collapse: collapse;
+        }
+    tbody:nth-of-type(odd){background-color: gray}
+    /*tbody:nth-of-type(even){background-color: green}*/
+    thead{background-color:#F6C562; }
+    h1{
+        width: 100%;
+        /*background-color: darkblue;*/
+        text-align: center;
+        color: #ffb346;
+        margin: 20px;
+        margin-left: 300px;
+        padding-right: 50px;
+        text-shadow: 2px 2px #637dff;
+    }
+
+</style>
+<div class="container" style="margin-left: 400px;">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 style="margin-left: 50px;">Product Data</h1>
+            {% if pdata %}
+                <table cellpadding="10">
+                   <thead>
+                        <tr>
+                            <th>No</th>
+                            <th> ID</th>
+                            <th> Name</th>
+                            <th>Role</th>
+                         
+                        </tr>
+                    </thead>
+                {% for p in pdata %}
+                    <tbody>
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ p.id }}</td>
+                            <td>{{ p.name }}</td>
+                            <td>{{ p.role }}</td>
+                           
+                        </tr>
+                {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>
